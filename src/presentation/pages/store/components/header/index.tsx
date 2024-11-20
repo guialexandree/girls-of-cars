@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = () => {
         flex={1}
         height="50vh"
       >
-        <Typography color="white" variant="h3">
+        <Typography color="white" variant="h3" fontWeight='600'>
           BEM VINDA
         </Typography>
         <Typography color="grey" variant="h6">
