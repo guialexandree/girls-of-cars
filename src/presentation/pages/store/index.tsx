@@ -4,7 +4,7 @@ interface StorePageProps {
   open?: boolean
 }
 
-const StorePage: React.FC<StorePageProps> = (props: StorePageProps) => {
+const StorePage: React.FC<StorePageProps> = () => {
   return <>teste</>
 }
 
