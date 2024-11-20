@@ -1,0 +1,42 @@
+name: "Contextualização e Critérios de Aceite"
+description: "Use este template para descrever o contexto e os critérios de aceite."
+title: "[FEATURE] Descreva aqui o objetivo"
+labels: ["enhancement", "triagem"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Contextualização
+
+        DESCREVA AQUI O CONTEXTO
+  - type: textarea
+    id: contextualizacao
+    attributes:
+      label: "Contextualização"
+      description: "Descreva o contexto e os objetivos desta issue."
+      placeholder: "Exemplo: Este recurso visa melhorar a experiência do usuário ao..."
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        ## Critérios de Aceite
+
+        | Nº | Critério |
+        | --- | --- |
+        | 01 | CRITERIO 1 |
+        | 02 | CRITERIO 2 |
+  - type: textarea
+    id: criterios_de_aceite
+    attributes:
+      label: "Critérios de Aceite"
+      description: "Liste os critérios de aceite. Cada critério deve ser objetivo e verificável."
+      placeholder: "Exemplo:\n- O sistema deve permitir...\n- A funcionalidade deve ser testada com..."
+    validations:
+      required: true
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Contexto Adicional"
+      description: "Inclua informações adicionais ou requisitos que possam ser úteis."
+      placeholder: "Exemplo: links para documentos, capturas de tela, referências"
