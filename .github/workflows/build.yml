@@ -1,0 +1,37 @@
+name: Build Project
+
+on:
+  push:
+    branches:
+      - main
+      - development
+  pull_request:
+    branches:
+      - main
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.17.0
+          cache: 'npm'
+
+      - name: Instala dependencias
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+    #   - name: Upload build artifact
+    #     if: success()
+    #     uses: actions/upload-artifact@v3
+    #     with:
+    #       name: build-output
+    #       path: ./dist/
