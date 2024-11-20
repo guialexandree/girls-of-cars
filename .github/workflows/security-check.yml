@@ -1,0 +1,35 @@
+name: Security Check
+
+on:
+  push:
+    branches:
+      - main
+      - development
+  pull_request:
+    branches:
+      - main
+      - development
+
+jobs:
+  gitleaks:
+    name: Run Gitleaks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Gitleaks
+        uses: zricethezav/gitleaks-action@v2
+        with:
+          config: ''
+          fail: true
+          redact: true
+          report-path: ./gitleaks-report.json
+
+      - name: Gitleaks Report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: gitleaks-report
+          path: ./gitleaks-report.json
