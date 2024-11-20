@@ -10,7 +10,7 @@ export const AppBar: React.FC = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBarMUI position="fixed" sx={{ padding: 1, backgroundColor: '#b24ab0ab' }}>
+      <AppBarMUI position="fixed" sx={{ padding: 1, backgroundColor: theme => `${theme.palette.primary.main}ab` }}>
         <Toolbar>
           <IconButton
             size="large"

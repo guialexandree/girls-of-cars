@@ -1,6 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
+import { ToastContainer } from 'react-toastify'
 import { HomePage, StorePage, Template } from '@/presentation/pages'
+import { ThemeProvider } from '@/presentation/components'
+import 'react-toastify/dist/ReactToastify.css'
 
 const router = createBrowserRouter([
   {
@@ -26,7 +29,10 @@ const router = createBrowserRouter([
 export const Router = () => {
   return (
     <RecoilRoot>
-      <RouterProvider router={router} />
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+      <ToastContainer />
     </RecoilRoot>
   )
 }
