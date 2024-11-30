@@ -1,0 +1,39 @@
+name: Reviewdog
+
+on:
+  pull_request:
+    branches:
+      - main
+      - development
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.17.0
+
+      - name: Instala dependencias
+        run: npm install
+
+      - name: Instala eslint-formatter-unix
+        run: npm install -D eslint-formatter-unix
+
+      - name: Install and Run Reviewdog
+        uses: reviewdog/action-setup@v1
+        with:
+            reviewdog_version: latest
+        env:
+            REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run ESLint with Reviewdog
+        run: |
+          npx eslint . --format=unix | reviewdog -name="eslint" -reporter=github-pr-review
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
